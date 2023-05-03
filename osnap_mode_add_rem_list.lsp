@@ -1,3 +1,21 @@
+;|
+
+Programa adaptado por Marcos Mendes.
+Pode ser distribuido livremente desde que seja conservado este cabeçalho
+
+para contato
+mmalbr@gmail.com
+https://github.com/mmalbr
+03/05/2023
+
+modo de usar:
+
+ descrito em cada função
+|;
+
+
+
+;; adiciona um osmode a seção do autocad o paramentro de entrada deve ser um numero inteiro
 (defun add_osmode (n)
   (prompt
     (strcat "\nModo osnap atual: " (rtos (getvar "osmode")))
@@ -9,6 +27,8 @@
   (princ)
 )
 
+
+;; remove um osmode a seção do autocad o paramentro de entrada deve ser um numero inteiro
 (defun del_osmode (n)
   (prompt
     (strcat "\nModo osnap atual: " (rtos (getvar "osmode")))
@@ -20,6 +40,9 @@
 (princ)
 )
 
+
+
+;; verifica se um osmode esta ativo na seção do autocad o paramentro de entrada deve ser um numero inteiro
 (defun is_osmode_set (n)
   (prompt
     (strcat "\nModo osnap atual: " (rtos (getvar "osmode")))
