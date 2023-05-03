@@ -1,6 +1,21 @@
-;;FUN«OES PARA TRATAMENTO DE ARQUIVO EXTERNO     ***********************
+;|
 
-;;le o valor de uma variavel dentro de uma seÁ„o de um arquivo do tipo ini.
+Programa adaptado por Marcos Mendes.
+Pode ser distribuido livremente desde que seja conservado este cabe√ßalho
+
+para contato
+mmalbr@gmail.com
+https://github.com/mmalbr
+03/05/2023
+
+modo de usar:
+
+ verifique o arquivo help.doc
+|;
+
+;;FUN√áOES PARA TRATAMENTO DE ARQUIVO EXTERNO     ***********************
+
+;;le o valor de uma variavel dentro de uma se√ß√£o de um arquivo do tipo ini.
 (defun ini_lerv	(inifile section entry)
   (defun ini_iniline (line sep / str1 str2)
     (if	(= 'STR (type line))
@@ -64,7 +79,7 @@
   (cadr (assoc entry section))
 )
 
-;; altera ou cria uma nova variavel detro de uma seÁ„o de uma arquivo do tipo ini.
+;; altera ou cria uma nova variavel detro de uma se√ß√£o de uma arquivo do tipo ini.
 (defun ini_criarv (inifile section entry val / ofile ini sec)
   (defun ini_iniline (line sep / str1 str2)
     (if	(= 'STR (type line))
@@ -173,7 +188,7 @@
   )
 )
 
-;; cria uma lista do tipo assoc com todas as variaveis de uma seÁ„o de um arquivod do tipo ini.
+;; cria uma lista do tipo assoc com todas as variaveis de uma se√ß√£o de um arquivod do tipo ini.
 (defun ini_lersv (inifile section / ofile line result)
   (defun ini_iniline (line sep / str1 str2)
     (if	(= 'STR (type line))
@@ -230,7 +245,7 @@
   )
 )
 
-;; cria uma lista com todas as seÁoes e todas as variaveis de um arquivo do tipo ini.
+;; cria uma lista com todas as se√ßoes e todas as variaveis de um arquivo do tipo ini.
 (defun ini_ler (inifile / ofile line section result)
   (defun ini_iniline (line sep / str1 str2)
     (if	(= 'STR (type line))
@@ -277,7 +292,7 @@
   (reverse result)
 )
 
-;;FUN«OES PARA TRATAMENTO DE BLOCOS      	  ***********************
+;;FUN√áOES PARA TRATAMENTO DE BLOCOS      	  ***********************
 
 ;;converte definicao de bloco para texto
 (defun def2txt (ent	     /		tipo	   texto
@@ -499,7 +514,7 @@
 			 "\) removido\(s\).\t\t          "
 		 )
 	  )
-	  (princ (strcat "\rN„o h· objetos\("
+	  (princ (strcat "\rN√£o h√° objetos\("
 			 bloco
 			 "\) duplicados.\t\t          "
 		 )
@@ -510,7 +525,7 @@
 	(strcat
 	  "Nao foi encontrada nenhuma ocorrencia deste objeto\("
 	  bloco
-	  "\) neste desenho.\nE recomend·vel executar o comando \"PURGE\""
+	  "\) neste desenho.\nE recomend√°vel executar o comando \"PURGE\""
 	)
       )
     )
@@ -593,7 +608,7 @@
 	     (princ "\rAplicativo cancelado!\t\t\t")
 	   )
     )
-    (princ "\rEste desenho n„o possui blocos!\t\t\t")
+    (princ "\rEste desenho n√£o possui blocos!\t\t\t")
   )
   (setq *error* olderr)
   (princ)
@@ -831,7 +846,7 @@
   (princ)
 )
 
-;; Modifica o estado visÌvel ou invisÌvel de um atributo em um bloco
+;; Modifica o estado vis√≠vel ou invis√≠vel de um atributo em um bloco
 (DeFun ATTSIT (ss_blk tg_att flag70 / n_obj e_blk L_atts e_att)
   (DeFun List_Attribs_Data (e_blk / dtt k dtt1 L_datt resul)
     (Setq dtt (EntGet e_blk))
@@ -1135,7 +1150,7 @@
   (defun mk_errdia (msg) (set_tile "error" msg) nil)
   (defun gravar_arquivo	()
     (write-line "CONT1 \: dialog \{" arq1)
-    (write-line "label \= \"AtenÁ„o\"\;" arq1)
+    (write-line "label \= \"Aten√ß√£o\"\;" arq1)
     (write-line "spacer_1\;" arq1)
     (write-line "\: boxed_row \{" arq1)
     (write-line "label \= \"leia...\"\;" arq1)
@@ -1309,7 +1324,7 @@
 	       (ok)
 	     )
       )
-      (alert "Este desenho n„o possui blocos!")
+      (alert "Este desenho n√£o possui blocos!")
     )
     (setq arq1 (open tmp "w"))
     (write-line "contato:\nmmal@uol.com.br" arq1)
@@ -1323,7 +1338,7 @@
   (cont1)
 )
 
-;;FUN«OES PARA CONVERS√O DE DADOS      	  ***********************
+;;FUN√áOES PARA CONVERS√ÉO DE DADOS      	  ***********************
 
 ;; converte graus em radianos
 (defun gr2rad (a) (* pi (/ a 180.0)))
@@ -1404,7 +1419,7 @@
         ((= i 1) (1+ (lsh n 1)))
         (T (chr (chr (+ 48 i))))))))
 
-;;FUN«OES PARA TRATAMENTO DE COODENADAS	  ***********************
+;;FUN√áOES PARA TRATAMENTO DE COODENADAS	  ***********************
 
 ;;Bulge center point calculation
 (defun BULGEC (P1 P2 BLG / DD AA PT)
@@ -1471,9 +1486,9 @@
   )
 )
 
-;;FUN«OES PARA TRATAMENTO DE LISTAS      	  ***********************
+;;FUN√áOES PARA TRATAMENTO DE LISTAS      	  ***********************
 
-;; retorna a diferenÁa entre a duas listas
+;; retorna a diferen√ßa entre a duas listas
 (defun diflist (lista1 lista2 / conta lista_final)
   (setq conta 0)
   (foreach item	lista1
@@ -1486,7 +1501,7 @@
   lista_final
 )
 
-;; retorna a posiÁ„o de um elemeto na lista
+;; retorna a posi√ß√£o de um elemeto na lista
 (defun lstpos (a lst / b)
   (if (setq b (member a lst))
     (progn (setq b (- (length lst) (length b))))
@@ -1514,7 +1529,7 @@
   L_limpo
 )
 
-;;remove um item de uma lista em uma posiÁ„o conhecida
+;;remove um item de uma lista em uma posi√ß√£o conhecida
 (defun rmlistapos (i_item l_lista)
   (if (< i_item (length l_lista))
     (progn (repeat i_item
@@ -1746,7 +1761,7 @@
   (setq item item)
 )
 
-;;FUN«OES PARA TRATAMENTO POLYLINE E LW...  ***********************
+;;FUN√áOES PARA TRATAMENTO POLYLINE E LW...  ***********************
 
 ;;retorna as coordenadas dos vertices de uma polyline ou lwpolyline
 (DEFUN lv (ent / pontos tipo)
@@ -1879,7 +1894,7 @@
   dist
 )
 
-;;FUN«OES DE MISCELANEA           	  ***********************
+;;FUN√áOES DE MISCELANEA           	  ***********************
 
 ;;solicita um numero inteiro- interface grafica
 (defun ddinreal	(msg titulo default / sim dado4 var1)
@@ -2369,7 +2384,7 @@
     )
     (defun makeDcl (fileName title textList / fh)
       (if (= title "")
-	(setq title " ConfirmaÁ„o ")
+	(setq title " Confirma√ß√£o ")
       )
       (setq fh (open fileName "w"))
       (write-line "confirm : dialog {" fh)
@@ -2551,7 +2566,7 @@
   (princ)
 )
 
-;;retorna uma lista com todas as funÁıes AutoLisp "c:" definidas na seÁ„o corrente
+;;retorna uma lista com todas as fun√ß√µes AutoLisp "c:" definidas na se√ß√£o corrente
 (defun lsp (/ lst n a lista)
   (progn (setq lst (atoms-family 1)
 	       lst (acad_strlsort lst)
@@ -2568,7 +2583,7 @@
   lista
 )
 
-;;Retorna a situaÁ„o de proteÁ„o do layer
+;;Retorna a situa√ß√£o de prote√ß√£o do layer
 (defun stlaylock (la / na e1)
   (setq	na (tblobjname "layer" la)
 	e1 (entget na)
@@ -2576,7 +2591,7 @@
   (equal 4 (logand 4 (cdr (assoc 70 e1))))
 )
 
-;;Retorna a situaÁ„o de congelamento do layer
+;;Retorna a situa√ß√£o de congelamento do layer
 (defun stlayfreeze (la / na e1)
   (setq	na (tblobjname "layer" la)
 	e1 (entget na)
@@ -2600,7 +2615,7 @@
   )
 )
 
-;;retorna os modos osnap ativados para a seÁ„o corrente do autocad
+;;retorna os modos osnap ativados para a se√ß√£o corrente do autocad
 (defun osmodes (/ osnap_modes list_bit bit conta)
   (setq osnap_modes (getvar "osmode"))
   (setq list_bit (append list_bit (list 0)))
@@ -2616,7 +2631,7 @@
   list_bit
 )
 
-;; cria um layer se o mesmo ainda n„o existir
+;; cria um layer se o mesmo ainda n√£o existir
 (defun crlayer (layer_t cor / nlayer ll layer existe var1 var2)
   (setq layer (tblnext "LAYER" T))
   (while layer
@@ -2778,7 +2793,7 @@
   SS2
 )
 
-;;FUN«OES PARA CONVERS√O DE DADOS      	  ***********************
+;;FUN√áOES PARA CONVERS√ÉO DE DADOS      	  ***********************
 
 ;; Permite associar a um unico selection set dois tipo diferentes de objetos
 (defun sel2 (tipo1 tipo2 /)
@@ -2795,12 +2810,12 @@
   )
 )
 
-;;Retorna um grupo de seleÁ„o pelo codigo dxf e valor
+;;Retorna um grupo de sele√ß√£o pelo codigo dxf e valor
 (defun dxfgrupo	(codigo valor /)
   (ssget "X" (list (cons codigo valor)))
 )
 
-;; aculta os elementos contido em um grupo de seleÁ„o
+;; aculta os elementos contido em um grupo de sele√ß√£o
 (defun ssvis (ss code / na e1 n)
   (if ss
     (progn (setq n 0)
@@ -2821,7 +2836,7 @@
   )					;if
 )
 
-;; junta dois grupo de seleÁ„o
+;; junta dois grupo de sele√ß√£o
 (defun jgrupo (g1 g2 / conta gt)
   (setq gt (ssadd))
   (if g1
@@ -2845,7 +2860,7 @@
   gt
 )
 
-;; subtrai de um grupo de seleÁ„o os elementos de outro grupo de seleÁ„o 
+;; subtrai de um grupo de sele√ß√£o os elementos de outro grupo de sele√ß√£o 
 (defun rgrupo (g2 g1 / gt conta)
   (setq gt (ssadd))
   (setq conta 0)
@@ -2872,12 +2887,12 @@
   sel_x
 )
 
-;;FUN«OES PARA TRATAMENTO DE STRINGS	  ***********************
+;;FUN√áOES PARA TRATAMENTO DE STRINGS	  ***********************
 
 ;; retorna o caractere informado
 (defun strichar (str index) (substr str (1+ index) 1))
 
-;;Remove todos os caracteres de espaÁo que est„o antes do primeiro caractere "v·lido"
+;;Remove todos os caracteres de espa√ßo que est√£o antes do primeiro caractere "v√°lido"
 (defun strltrim	(textval / len inx conta textval1 carac)
   (setq len (strlen textval))
   (setq textval1 textval)
@@ -2904,7 +2919,7 @@
   )
 )
 
-;;Remove todos os caracteres de espaÁo que est„o depois do ˙ltimo caractere "v·lido".
+;;Remove todos os caracteres de espa√ßo que est√£o depois do √∫ltimo caractere "v√°lido".
 (defun strrtrim	(textval / len inx conta textval1 carac)
   (setq len (strlen textval))
   (setq textval1 textval)
@@ -2932,7 +2947,7 @@
   )
 )
 
-;;Remove todos os caracteres de espaÁo que est„o antes do ˙ltimo caractere "v·lido" e est„o depois do ˙ltimo caractere "v·lido".
+;;Remove todos os caracteres de espa√ßo que est√£o antes do √∫ltimo caractere "v√°lido" e est√£o depois do √∫ltimo caractere "v√°lido".
 (defun strtrim (textval / tx2)
   (defun strltrim (textval / len inx conta textval1 carac)
     (setq len (strlen textval))
@@ -3141,7 +3156,7 @@
   (setq ListLY ListLY)
 )
 
-;;Efetua uma encriptaÁ„o=1/desencriptaÁ„o=0 da string
+;;Efetua uma encripta√ß√£o=1/desencripta√ß√£o=0 da string
 (defun strcr (textval par / cripta1 letra nova_string conta quant)
   (if (and (/= par 1) (/= par 0))
     (progn (prompt "Parametro incorreto") (exit))
@@ -3500,7 +3515,7 @@
   )
 )
 
-;;verifica se a string È numerica
+;;verifica se a string √© numerica
 (defun strnum (S / C conta s1)
   (setq s1 s)
   (setq C (substr S 1 1))
@@ -3665,7 +3680,7 @@
   textval
 )
 
-;;FUN«OES PARA XDATA 		      	  ***********************
+;;FUN√áOES PARA XDATA 		      	  ***********************
 
 
 ;; cria link entre entidades do autocad
@@ -3711,7 +3726,7 @@
 
 
 
-;; retorna um grupo se seleÁ„o com todos os elementos que contem o tag (xdata) informado.
+;; retorna um grupo se sele√ß√£o com todos os elementos que contem o tag (xdata) informado.
 (DeFun selxd (cod_xd / sel)
   (Setq
     sel	(ssget
