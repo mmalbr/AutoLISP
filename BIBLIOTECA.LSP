@@ -11,6 +11,8 @@ https://github.com/mmalbr
 modo de usar:
 
  verifique o arquivo help.doc
+ se quiser me pagar um café:
+https://www.buymeacoffee.com/mmalbr
 |;
 
 ;;FUNÇOES PARA TRATAMENTO DE ARQUIVO EXTERNO     ***********************
